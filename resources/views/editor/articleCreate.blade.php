@@ -81,7 +81,7 @@
                                         CKEDITOR.replace('text')
                                     </script>
                                 </div>
-                                <input type="hidden" name = "user_id" value="{{\Illuminate\Support\Facades\Auth::user()}}" />
+                                <input type="hidden" name = "user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" />
                                 <p>
                                     <label>&nbsp;</label>
                                     <input type="submit" class="btn" value="Опубликовать" />

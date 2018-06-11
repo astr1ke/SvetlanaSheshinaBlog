@@ -46,10 +46,10 @@
 
                                                         <?php $us = \App\User::find($articles->user_id);
                                                         $user = $us -> name;
-                                                        $foto = $us -> foto
+                                                        $ava =$us -> avatar;
                                                         ?>
 
-                                                        <img src="{{$foto}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                        <img src="{{asset('storage').'/'.$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
                                                         <span><a href="#">{{$user}}</a></span>
                                                     </div>
                                                 </div>
