@@ -27,6 +27,11 @@ Route::get('/galary', function (){
 Route::get('/file', function (){
     return view('file');
 });
+Route::get('/admin/aboutMeEdit',function (){
+   return view('editor.aboutMeEdit');
+});
+Route::post('/admin/aboutMeEdit','adminController@aboutMeEditPost');
+
 
 Auth::routes();
 
