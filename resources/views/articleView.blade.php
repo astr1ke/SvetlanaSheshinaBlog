@@ -56,7 +56,7 @@
                                                 <!-- // col -->
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="posted-date">
-                                                        <span><a href="#">{{ is_object($articles->created_at) ? $articles->created_at->format('d  F  Y  в  H:i') : ''}}</a></span>
+                                                        <span><a>{{ is_object($articles->created_at) ? $articles->created_at->format('d  F  Y  в  H:i') : ''}}</a></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -122,9 +122,7 @@
             </div>
         </div>
     </div>
-    <div id="instafeed" class="instafeed owl-carousel feed-carousel">
 
-    </div>
 
 @endsection
 @section('scripts')

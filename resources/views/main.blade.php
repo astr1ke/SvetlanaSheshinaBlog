@@ -17,11 +17,12 @@
                                         <h2>{{$article->title}}</h2>
                                     </div>
                                     <!-- // post-title -->
-                                    <div class="post-the-content clearfix layout-one-first-letter">
+                                    <div class="post-the-content clearfix layout-one-first-letter" style="word-wrap:break-word">
 
-                                    <?php   $txt = preg_replace ('/<img.*>/Uis', '', $article->text);
-                                    $txt = preg_replace('/\s{2,}/', '', $txt);
-                                    $txt = mb_strimwidth($txt,0,300,'...')
+                                    <?php
+                                        $txt = preg_replace ('/<img.*>/Uis', '', $article->text);
+                                        $txt = preg_replace('/\s{2,}/', '', $txt);
+                                        $txt = mb_strimwidth($txt,0,300,'...')
                                     ?> <!---  обрезаем колво символов для превью статей на главной --->
 
                                         <p>{!!$txt!!}</p>
@@ -33,11 +34,16 @@
                                     <!-- // post-permalink -->
                                     <div class="post-meta-and-share">
                                         <div class="row">
-                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                <div class="post-author">
-                                                    <span class="post-author"><a href="#">Sparkle Themes</a></span>
+                                            <?php
+                                                $articleUser = \App\User::find($article->user_id);
+                                            ?>
+                                            @if (isset($articleUser))
+                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                    <div class="post-author">
+                                                        <span class="post-author"><a>{{$articleUser->name}}</a></span>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endif
                                             <!-- // col 4 -->
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                 <div class="post-share">
@@ -45,9 +51,12 @@
                                                 </div>
                                             </div>
                                             <!-- // col 4 -->
+                                             <?php
+                                                $commentsCount = count(\App\Comment::where('article_id',$article->id)->get())
+                                             ?>
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                 <div class="post-comment-count">
-                                                    <span class="post-comment-count"><a href="#">0 Comment</a></span>
+                                                    <span class="post-comment-count"><a>коментариев: {{$commentsCount}}</a></span>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,20 +114,11 @@
                 <!--Пагинация-->
                 <div class="pagination_holder">
                     <ul class="pagination">
-                        <li class="disabled"><a href="#">«</a></li>
-                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">»</a></li>
+                        {{$articles->links()}}
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="instafeed" class="instafeed owl-carousel feed-carousel">
-
-    </div>
 @endsection

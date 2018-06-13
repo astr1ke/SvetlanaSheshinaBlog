@@ -45,7 +45,7 @@
         <!-- // header-top-wrapper -->
         <div class="container">
             <div class="site-info">
-                <h1 class="site-title">Welcome to my Blog</h1>
+                <h1 class="site-title">Svetlana Chechina Blog</h1>
                 <!--  <img src="./assets/dist/img/logo.png" alt="logo"> -->
             </div>
             <!-- // site-info -->
@@ -54,43 +54,29 @@
         <nav class="main-nav layout-one">
             <div id="main-nav" class="stellarnav">
                 <ul>
-                    <li><a href="/">Home Layout</a>
+                    <li><a href="/">Главная</a></li>
+
+                    <li><a href="/about">Обо мне</a></li>
+
+                    <li><a href="/articleCatalog">Каталог статей</a>
                         <ul>
-                            <li>
-                            <li><a href="index.php">Home Layout One</a></li>
-                            <li><a href="index-two.php">Home Layout Two</a></li>
-                            <li><a href="index-three.php">Home Layout Three</a></li>
-                            <li><a href="index-four.php">Home Layout Four</a></li>
-                            <li><a href="index-four-full-width.php">Home Layout Four + Full Width</a></li>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Single Page layout</a>
-                        <ul>
-                            <li><a href="single-page-layout-one.php">Single Page Layout One</a></li>
-                            <li><a href="single-page-layout-two.php">Single Page Layout Two + Image</a></li>
-                            <li><a href="single-page-layout-two-video.php">Single Page Layout Two + Video</a></li>
-                            <li><a href="single-page-layout-three.php">Single Page Layout Three</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Pages</a>
-                        <ul>
-                            <li>
-                            <li><a href="404.php">404 page</a></li>
-                            <li><a href="#">Single Page</a>
+                            <li><a>По категориям</a>
                                 <ul>
-                                    <li><a href="single-page-layout-one.php">Single Page Layout One</a></li>
-                                    <li><a href="single-page-layout-two.php">Single Page Layout Two + Image</a></li>
-                                    <li><a href="single-page-layout-two-video.php">Single Page Layout Two + Video</a></li>
-                                    <li><a href="single-page-layout-three.php">Single Page Layout Three</a></li>
+                                    <?php
+                                    $categoriesAll = \App\categorie::all();
+                                    ?>
+                                    @foreach($categoriesAll as $cat)
+                                        <li><a href="/categorie/{{$cat->id}}">{{$cat->name}}</a></li>
+                                    @endforeach
+
                                 </ul>
                             </li>
-                            <li><a href="search.php">Search Page</a></li>
+                            <li><a href="/">Все статьи</a></li>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">Health</a></li>
+                    <li><a href="/gallery">Галерея</a></li>
+                    <li><a href="/files">Файлы</a></li>
                     <li><a href="/articleCreate">Добавить ст.</a></li>
 
                 </ul>
