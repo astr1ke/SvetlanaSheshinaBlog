@@ -1,7 +1,7 @@
 <li id="li-comment-{{$data['id']}}" class="comment">
 
 	<article class="review-box clearfix">
-		<figure class="rev-thumb"><img src="{{asset('images')}}/profiles/2.png" alt=""></figure>
+		<figure class="rev-thumb"><img src="" alt=""></figure>
 		<div class="rev-content">
 			<div class="rev-info"><strong>{{$data['user']}} – February 04, 2017: </strong></div>
 			<div class="rev-text">

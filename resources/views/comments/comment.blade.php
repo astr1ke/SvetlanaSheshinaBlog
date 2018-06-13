@@ -3,8 +3,20 @@
 <li id="li-comment-{{$item->id}}" class="comment">
 	<div id="comment-{{$item->id}}" class="comment-container">
 
+
 		<article class="review-box clearfix">
-			<figure class="rev-thumb"><img src="{{asset('images')}}/profiles/2.png" alt=""></figure>
+			<?php
+				$userCom = \App\User::find($item->user_id);
+            if(isset($userCom)){
+                $ava =$userCom -> avatar;
+                if (mb_substr($ava, 0,1) == 'a'){
+                    $ava = '/storage/'.$ava;
+                }
+            }
+			?>
+			@if(isset($ava))
+				<figure class="rev-thumb"><img src="{{$ava}}" alt=""></figure>
+			@endif
 			<div class="rev-content">
 				<div class="rev-info"><strong>{{$item->user}} – {{ is_object($item->created_at) ? $item->created_at->format('d.m.Y в H:i') : ''}} </strong></div>
 				<div class="rev-text">

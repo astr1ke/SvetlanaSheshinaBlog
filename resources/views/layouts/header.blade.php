@@ -1,5 +1,5 @@
 <header class="general-header header-layout-one">
-    <div class="general-header-inner">
+    <div class="general-header-inner" >
         <div class="header-top-wrapper">
             <div class="header-top-inner">
                 <div class="container">
@@ -13,7 +13,7 @@
                         <!-- // col -->
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="social-networks">
-                                <ul class="social-links">
+                                <ul class="social-links" style="font-size: 16px">
                                         @if (\Illuminate\Support\Facades\Auth::check())
                                             @if (\Illuminate\Support\Facades\Auth::user()->role_id == 1)
                                                 <a style="margin-right: 50px" href="/admin">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
@@ -31,35 +31,26 @@
                                             mobilebuttons=0;"></a>
                                 </ul>
                             </div>
-                            <!-- // social-networks -->
                         </div>
-                        <!-- // col -->
                     </div>
-                    <!-- // row -->
                 </div>
-                <!-- // container -->
             </div>
-            <!-- // header-top-inner -->
         </div>
-        <!-- // header-top-wrapper -->
         <div class="container">
             <div class="site-info">
                 <h1 class="site-title">Svetlana Chechina Blog</h1>
-                <!--  <img src="./assets/dist/img/logo.png" alt="logo"> -->
             </div>
-            <!-- // site-info -->
         </div>
-        <!-- // container -->
         <nav class="main-nav layout-one">
-            <div id="main-nav" class="stellarnav">
+            <div id="main-nav" class="stellarnav" >
                 <ul>
-                    <li><a href="/">Главная</a></li>
+                    <li><a style="font-size: 15px" href="/">Главная</a></li>
 
-                    <li><a href="/about">Обо мне</a></li>
+                    <li><a style="font-size: 15px" href="/about">Обо мне</a></li>
 
-                    <li><a href="/articleCatalog">Каталог статей</a>
+                    <li><a style="font-size: 15px" href="/articleCatalog">Каталог статей</a>
                         <ul>
-                            <li><a>По категориям</a>
+                            <li><a style="font-size: 15px">По категориям</a>
                                 <ul>
                                     <?php
                                     $categoriesAll = \App\categorie::all();
@@ -70,18 +61,16 @@
 
                                 </ul>
                             </li>
-                            <li><a href="/">Все статьи</a></li>
+                            <li><a style="font-size: 15px" href="/">Все статьи</a></li>
                             </li>
                         </ul>
                     </li>
-                    <li><a href="/gallery">Галерея</a></li>
-                    <li><a href="/files">Файлы</a></li>
-                    <li><a href="/articleCreate">Добавить ст.</a></li>
+                    <li><a style="font-size: 15px" href="/gallery">Галерея</a></li>
+                    <li><a style="font-size: 15px" href="/files">Файлы</a></li>
+                    <li><a style="font-size: 15px" href="/articleCreate">Добавить ст.</a></li>
 
                 </ul>
             </div>
-            <!-- .stellar-nav -->
         </nav>
     </div>
-    <!-- // general-header-inner -->
 </header>

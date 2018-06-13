@@ -49,11 +49,14 @@
                                                             if(isset($us)){
                                                             $user = $us -> name;
                                                             $ava =$us -> avatar;
+                                                            if (mb_substr($ava, 0,1) == 'a'){
+                                                                $ava = '/storage/'.$ava;
+                                                            }
                                                             }
                                                         ?>
 
                                                         @if(isset($ava))
-                                                            <img src="{{asset('storage').'/'.$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                            <img src="{{$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
                                                             <span><a href="#">{{$user}}</a></span>
                                                         @endif
                                                     </div>
