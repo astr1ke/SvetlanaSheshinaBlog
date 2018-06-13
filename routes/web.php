@@ -14,6 +14,8 @@ Route::get('/categorie/{id}','mainController@categoriesView');
 Route::post('comment', 'CommentController@store')->name('comment');
 Route::any('commentDelete', 'CommentController@delete');
 
+//Роут uLogin
+Route::post('ulogin','uLoginController@login');
 
 
 Route::get('/about', function (){

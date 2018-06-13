@@ -25,11 +25,10 @@
                                         @else
                                             <a style="margin-right: 50px" href="/login">Войти на сайт</a>
                                         @endif
-                                    <li><a href="facebook.com"></a></li>
-                                    <li><a href="twitter.com"></a></li>
-                                    <li><a href="instagram.com"></a></li>
-                                    <li><a href="youtube.com"></a></li>
-                                    <li><a href="snapchat.com"></a></li>
+                                            <script src="//ulogin.ru/js/ulogin.js"></script>
+                                            <a id="uLogin" data-ulogin="display=panel;theme=classic;fields=first_name,last_name,email,photo_big,city,photo;
+                                            providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri={{'http://'. $_SERVER['HTTP_HOST']}}/ulogin;
+                                            mobilebuttons=0;"></a>
                                 </ul>
                             </div>
                             <!-- // social-networks -->

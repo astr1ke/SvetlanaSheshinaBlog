@@ -1,0 +1,2 @@
+//Роут uLogin
+Route::post('ulogin','uLoginController@login');

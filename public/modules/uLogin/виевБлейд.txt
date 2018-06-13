@@ -1,0 +1,4 @@
+<script src="//ulogin.ru/js/ulogin.js"></script>
+                                            <a id="uLogin" data-ulogin="display=panel;theme=classic;fields=first_name,last_name,email,photo_big,city,photo;
+                                            providers=vkontakte,odnoklassniki,mailru,facebook;hidden=other;redirect_uri={{'http://'. $_SERVER['HTTP_HOST']}}/ulogin;
+                                            mobilebuttons=0;"></a>

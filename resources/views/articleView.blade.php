@@ -44,13 +44,18 @@
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="post-author">
 
-                                                        <?php $us = \App\User::find($articles->user_id);
-                                                        $user = $us -> name;
-                                                        $ava =$us -> avatar;
+                                                        <?php
+                                                            $us = \App\User::find($articles->user_id);
+                                                            if(isset($us)){
+                                                            $user = $us -> name;
+                                                            $ava =$us -> avatar;
+                                                            }
                                                         ?>
 
-                                                        <img src="{{asset('storage').'/'.$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
-                                                        <span><a href="#">{{$user}}</a></span>
+                                                        @if(isset($ava))
+                                                            <img src="{{asset('storage').'/'.$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                            <span><a href="#">{{$user}}</a></span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <!-- // col -->
@@ -61,7 +66,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-the-content">
+                                        <div class="post-the-content" style="word-wrap:break-word">
                                             <p>{!! $articles->text !!}</p>
                                         </div>
                                         <div class="post-share">
