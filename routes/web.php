@@ -6,9 +6,17 @@ Route::get('/', 'mainController@index');
 Route::get('/article/{id}','articleController@view');
 Route::get('/articleCreate','articleController@create');
 Route::post('/articleCreate','articleController@createPost');
-Route::get('/articleCreate/{id}','articleController@edit');
-Route::post('/articleCreate/{id}','articleController@editPost');
+Route::get('/articleEdit/{id}','articleController@edit');
+Route::post('/articleEdit','articleController@editPost');
 Route::get('/categorie/{id}','mainController@categoriesView');
+Route::get('/articleCatalog','articleController@catalog');
+Route::get('/articleCatalog/categorie/{id}','articleController@catalogCategorie');
+Route::get('/article/delete/{id}','articleController@delete');
+
+
+Route::get('/contacts', 'mainController@contacts');
+Route::post('/send','mainController@send');
+Route::get('/about', 'mainController@about');
 
 //Роут для комментариев
 Route::post('comment', 'CommentController@store')->name('comment');
@@ -18,26 +26,17 @@ Route::any('commentDelete', 'CommentController@delete');
 Route::post('ulogin','uLoginController@login');
 
 
-Route::get('/about', function (){
-    return view('about');
-});
-Route::get('/articleCatalog', function (){
-    return view('articleCatalog');
-});
-Route::get('/gallery', function (){
-    return view('gallery');
-});
-Route::get('/files', function (){
-    return view('files');
-});
-
-
-
+//Роуты с админки
 Route::get('/admin/aboutMeEdit',function (){
    return view('editor.aboutMeEdit');
 });
 Route::post('/admin/aboutMeEdit','adminController@aboutMeEditPost');
 Route::post('/admin/socialEdit','adminController@socialEditPost');
+Route::get('/admin/articles','adminController@articlesCatalog');
+Route::get('/admin/categories','adminController@categories');
+Route::get('/admin/aboutMePageEdit','adminController@aboutMePageEdit');
+Route::post('/admin/aboutMePageEdit','adminController@aboutMePagePost');
+
 
 
 

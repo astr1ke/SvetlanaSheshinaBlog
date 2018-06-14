@@ -56,17 +56,16 @@
                                     $categoriesAll = \App\categorie::all();
                                     ?>
                                     @foreach($categoriesAll as $cat)
-                                        <li><a href="/categorie/{{$cat->id}}">{{$cat->name}}</a></li>
+                                        <li><a href="/articleCatalog/categorie/{{$cat->id}}">{{$cat->name}}</a></li>
                                     @endforeach
 
                                 </ul>
                             </li>
-                            <li><a style="font-size: 15px" href="/">Все статьи</a></li>
+                            <li><a style="font-size: 15px" href="/articleCatalog">Все статьи</a></li>
                             </li>
                         </ul>
                     </li>
-                    <li><a style="font-size: 15px" href="/gallery">Галерея</a></li>
-                    <li><a style="font-size: 15px" href="/files">Файлы</a></li>
+                    <li><a style="font-size: 15px" href="/contacts">Обратная связь</a></li>
                     <li><a style="font-size: 15px" href="/articleCreate">Добавить ст.</a></li>
 
                 </ul>

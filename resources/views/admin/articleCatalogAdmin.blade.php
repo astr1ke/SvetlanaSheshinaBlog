@@ -55,9 +55,18 @@
                                         }
                                         ?>
                                         @if(isset($ava))
-                                            <p><img src="{{$ava}}" alt="...." style="max-height: 35px; max-width: 35px; margin-right: 35px"><a href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
+                                            <p>
+                                                <img src="{{$ava}}" alt="...." style="max-height: 35px; max-width: 35px; margin-right: 35px">
+                                                <a href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a>
+                                                <a type="button" style="margin-left: 10px; padding: 4px" href="/article/delete/{{$article->id}}" onClick="return confirm('Вы подтверждаете удаление?');">Удалить</a>
+                                                <a type="button" style="margin-left: 10px; padding: 4px" href="/articleEdit/{{$article->id}}" >Редактировать</a>
+                                            </p>
                                         @else
-                                            <p><a style="margin-left: 70px" href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
+                                            <p>
+                                                <a style="margin-left: 70px" href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a>
+                                                <a type="button" style="margin-left: 10px; padding: 4px" href="/article/delete/{{$article->id}}" onClick="return confirm('Вы подтверждаете удаление?');">Удалить</a>
+                                                <a type="button" style="margin-left: 10px; padding: 4px" href="/articleEdit/{{$article->id}}">Редактировать</a>
+                                            </p>
                                         @endif
                                         <?php unset($ava)?>
                                     </div>
@@ -66,7 +75,7 @@
                             </div>
                         </div>
 
-                        @include('layouts.rigthColumn')
+                    @include('layouts.rigthColumn')
                     <!--Пагинация-->
                         <div class="pagination_holder">
                             <ul class="pagination">
