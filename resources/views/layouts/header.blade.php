@@ -66,8 +66,12 @@
                         </ul>
                     </li>
                     <li><a style="font-size: 15px" href="/contacts">Обратная связь</a></li>
-                    <li><a style="font-size: 15px" href="/articleCreate">Добавить ст.</a></li>
 
+                    @if (\Illuminate\Support\Facades\Auth::check() and \Illuminate\Support\Facades\Auth::user()->role_id==1)
+                        <li><a style="font-size: 15px" href="/articleCreate">Добавить статью</a></li>
+                    @else
+                        <li><a style="font-size: 15px" href="">Предложить статью</a></li>
+                    @endif
                 </ul>
             </div>
         </nav>
