@@ -7,8 +7,8 @@
             background: whitesmoke;
             border-radius: 1px;
             padding: 10px;
-            width: max-content;
-            margin-top: 10px;
+            padding-bottom: 0px;
+            margin: 3px;
         }
         .articleTime{
             font-size: 11px;
@@ -38,33 +38,38 @@
                     <div class="row">
                         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <div class="main-post-area-holder">
-                                <h4 style="margin:50px ">Список статей</h4>
-
-                                @foreach($articles as $article)
-                                    <div class="articleCatalog">
-                                        <?php
-                                        $cat = \App\categorie::find($article->categorie_id);
-                                        $cat = $cat->name;
-                                        $us = \App\User::find($article->user_id);
-                                        if(isset($us)){
-                                            $user = $us -> name;
-                                            $ava =$us -> avatar;
-                                            if (mb_substr($ava, 0,1) == 'a'){
-                                                $ava = '/storage/'.$ava;
-                                            }
-                                        }
-                                        ?>
-                                        @if(isset($ava))
-                                            <p><img src="{{$ava}}" alt="...." style="max-height: 35px; max-width: 35px; margin-right: 35px"><a href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
-                                        @else
-                                            <p><a style="margin-left: 70px" href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
-                                        @endif
-                                        <?php unset($ava)?>
-                                    </div>
-                                @endforeach
-
+                                    <article class="single-page-details-holder wow fadeInUp">
+                                        <div class="single-page-other-information-holder">
+                                            <div class="post-title">
+                                                <h2> <h4 style="margin:50px ">Список статей</h4></h2>
+                                            </div>
+                                            @foreach($articles as $article)
+                                                <div class="post-the-content articleCatalog" style="word-wrap:break-word">
+                                                    <?php
+                                                    $cat = \App\categorie::find($article->categorie_id);
+                                                    $cat = $cat->name;
+                                                    $us = \App\User::find($article->user_id);
+                                                    if(isset($us)){
+                                                        $user = $us -> name;
+                                                        $ava =$us -> avatar;
+                                                        if (mb_substr($ava, 0,1) == 'a'){
+                                                            $ava = '/storage/'.$ava;
+                                                        }
+                                                    }
+                                                    ?>
+                                                    @if(isset($ava))
+                                                        <p><img src="{{$ava}}" alt="...." style="max-height: 35px; max-width: 35px; margin-right: 35px"><a href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
+                                                    @else
+                                                        <p><a style="margin-left: 70px" href="/article/{{$article->id}}">{{$article->title}} - #{{$cat}}</a><a class="articleTime">{{$article->created_at}}</a></p>
+                                                    @endif
+                                                    <?php unset($ava)?>
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </article>
+                                </div>
                             </div>
-                        </div>
+
 
                         @include('layouts.rigthColumn')
                     <!--Пагинация-->
