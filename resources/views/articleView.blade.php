@@ -1,12 +1,16 @@
 @extends('layouts.layout')
 
 @section('styles')
+    <?php
+    $textt =  strip_tags($articles->text);
+    dd($textt)
+    ?>
     <meta property="og:title" content="{{$articles->title}}"/>
-    <meta property="og:description" content="{!!$articles->text!!}"/>
+    <meta property="og:description" content="{{$textt}}"/>
     <meta property="og:image" content="http://светланачечина.рус/{{$articles->image}}"/>
     <meta property="og:url" content= "http://светланачечина.рус/article/{{$articles->id}}" />
     <meta name="title" content="{{$articles->title}}" />
-    <meta name="description" content="{!! $articles->text !!}" />
+    <meta name="description" content="{{$textt}}" />
     <link rel="image_src" href="http://светланачечина.рус/{{$articles->image}}" />
 
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('modules/comments/css')}}/comments.css" />
