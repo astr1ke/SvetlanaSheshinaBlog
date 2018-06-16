@@ -12,6 +12,7 @@ Route::get('/categorie/{id}','mainController@categoriesView');
 Route::get('/articleCatalog','articleController@catalog');
 Route::get('/articleCatalog/categorie/{id}','articleController@catalogCategorie');
 Route::get('/article/delete/{id}','articleController@delete');
+Route::post('/search','articleController@search');
 
 
 Route::get('/contacts', 'mainController@contacts');

@@ -51,12 +51,16 @@ class articleController extends Controller
 
     public function catalog(){
         $articles = article::orderBy('created_at','DESC')->paginate(30);
-        return view('articleCatalog', ['articles'=>$articles]);
+        $title = "Каталог статей";
+        return view('articleCatalog', ['articles'=>$articles,'title'=>$title]);
     }
 
     public function catalogCategorie($id){
         $articles = article::orderBy('created_at','DESC')->where('categorie_id',$id)->paginate(30);
-        return view('articleCatalog', ['articles'=>$articles]);
+        $cat = categorie::find($id);
+        $cat = $cat->name;
+        $title = "Статьи с категорией $cat";
+        return view('articleCatalog', ['articles'=>$articles,'title'=>$title]);
     }
 
     public function delete($id){
@@ -99,6 +103,16 @@ class articleController extends Controller
             ]);
         }
         return redirect('/admin/articles');
+    }
+
+    public function search(Request $request){
+        $articles = article::where('title','LIKE',"%$request->srch%")->orWhere('text','LIKE',"%$request->srch%")->paginate(30);
+        if ($articles){
+            $title = "Поиск по фразе: $request->srch";
+        }else{
+            $title = "По фразе: \"$request->srch\" ничего не найдено ";
+        }
+        return view('articleCatalog',['articles'=>$articles,'title'=>$title]);
     }
 
 

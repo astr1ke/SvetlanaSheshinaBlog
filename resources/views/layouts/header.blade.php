@@ -6,8 +6,12 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="search">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                                <input type="search" placeholder="Search ..........">
+                                <form action="/search" method="post">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                    <input id="search" type="search" name="srch" placeholder="Search ..........">
+                                    <input type="submit" id="submit" style="display: none">
+                                </form>
+
                             </div>
                         </div>
                         <!-- // col -->
@@ -16,14 +20,14 @@
                                 <ul class="social-links" style="font-size: 16px">
                                         @if (\Illuminate\Support\Facades\Auth::check())
                                             @if (\Illuminate\Support\Facades\Auth::user()->role_id == 1)
-                                                <a style="margin-right: 50px" href="/admin">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
-                                                <a style="margin-right: 50px" href="/logout">Выйти</a>
+                                                <a style="margin-right: 35px" href="/admin">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                                                <a style="margin-right: 35px" href="/logout">Выйти</a>
                                             @else
-                                                <a style="margin-right: 50px">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
-                                                <a style="margin-right: 50px" href="/logout">Выйти</a>
+                                                <a style="margin-right: 35px">{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                                                <a style="margin-right: 35px" href="/logout">Выйти</a>
                                             @endif
                                         @else
-                                            <a style="margin-right: 50px" href="/login">Войти на сайт</a>
+                                            <a style="margin-right: 35px" href="/login">Войти на сайт</a>
                                         @endif
                                             <script src="//ulogin.ru/js/ulogin.js"></script>
                                             <a id="uLogin" data-ulogin="display=panel;theme=classic;fields=first_name,last_name,email,photo_big,city,photo;

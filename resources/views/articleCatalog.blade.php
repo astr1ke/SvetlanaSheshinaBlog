@@ -41,7 +41,7 @@
                                     <article class="single-page-details-holder wow fadeInUp">
                                         <div class="single-page-other-information-holder">
                                             <div class="post-title">
-                                                <h2> <h4 style="margin:50px ">Список статей</h4></h2>
+                                                <h2> <h4 style="margin:50px ">{{$title}}</h4></h2>
                                             </div>
                                             @foreach($articles as $article)
                                                 <div class="post-the-content articleCatalog" style="word-wrap:break-word">
