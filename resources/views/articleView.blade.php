@@ -1,6 +1,11 @@
 @extends('layouts.layout')
 
 @section('styles')
+    <meta property="og:title" content="{{$articles->title}}"/>
+    <meta property="og:description" content="{{$articles->text}}"/>
+    <meta property="og:image" content="http://светланачечина.рус/{{$articles->image}}"/>
+    <meta property="og:url" content= "http://светланачечина.рус/article/{{$articles->id}}" />
+
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('modules/comments/css')}}/comments.css" />
     <link href="{{asset('modules/lightbox')}}/jquery-lightbox.css" type="text/css" rel="stylesheet" />
 @endsection
