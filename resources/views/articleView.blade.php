@@ -3,7 +3,6 @@
 @section('styles')
     <?php
     $textt =  strip_tags($articles->text);
-    dd($textt)
     ?>
     <meta property="og:title" content="{{$articles->title}}"/>
     <meta property="og:description" content="{{$textt}}"/>
