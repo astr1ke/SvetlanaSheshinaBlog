@@ -6,7 +6,7 @@
     ?>
     <meta property="og:title" content="{{$articles->title}}"/>
     <meta property="og:description" content="{{$textt}}"/>
-    <meta property="og:image" content="http://светланачечина.рус/{{$articles->image}}"/>
+    <meta property="og:image" content="{{$articles->image}}"/>
     <meta property="og:url" content= "http://светланачечина.рус/article/{{$articles->id}}" />
     <meta name="title" content="{{$articles->title}}" />
     <meta name="description" content="{{$textt}}" />
