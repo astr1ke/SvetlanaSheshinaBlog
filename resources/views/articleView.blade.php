@@ -140,7 +140,7 @@
                                                         var h=d[g]('body')[0];
                                                         h.appendChild(s);
                                                     }})();</script>
-                                            <div class="pluso" data-background="#ebebeb" data-options="medium,square,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,google,twitter,facebook,moimir,print,email"></div>
+                                            <div class="pluso" data-background="#ebebeb" data-options="medium,square,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,google,twitter,facebook,moimir,print,email" data-image="{{$articles->image}}"></div>
                                         </div>
                                         <div class="tags-meta-and-others clearfix">
                                             <div class="post-tags">
