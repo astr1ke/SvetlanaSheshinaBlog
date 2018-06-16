@@ -5,7 +5,6 @@
         ?>
         <div class="widget-about-me-profile">
             <img src="{{$articles->image}}" alt="..." style="display: none">
-            <img src="{{asset('storage').'/'.$aboutMe->foto}}" alt="...">
         </div>
         <div class="widget-extra-info-holder">
             <div class="widget-author-name">
