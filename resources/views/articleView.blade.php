@@ -2,16 +2,63 @@
 
 @section('styles')
     <link rel="stylesheet" type="text/css" media="all" href="{{asset('modules/comments/css')}}/comments.css" />
+    <link href="{{asset('modules/lightbox')}}/jquery-lightbox.css" type="text/css" rel="stylesheet" />
 @endsection
 
 @section('content')
+    <script type="text/javascript" src="{{asset('modules/lightbox')}}/scripts/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="{{asset('modules/lightbox')}}/scripts/jquery.lightbox.js"></script>
+
+
+
+    <script>
+        jQuery.noConflict();
+        jQuery(function($){
+            $('#artText img').css("height", "auto");
+            $('#artText img').css("width", "auto");
+        });
+    </script>
+
+    <script>
+        if ( !(navigator.userAgent.indexOf('MSIE 6') >= 0) ){
+            jQuery.noConflict();
+            jQuery(function($){
+                $("#artText a").lightbox();
+                $.Lightbox.construct({
+                    "speed": 500,
+                    "show_linkback": true,
+                    "keys": {
+                        close:	"q",
+                        prev:	"z",
+                        next:	"x"
+                    },
+                    "opacity": 0.9,
+                    text: {
+                        image:		"Картинка",
+                        of:			"из",
+                        close:		"Закрыть",
+                        closeInfo:	"Завершить просмотр можно, кликнув мышью вне картинки.",
+                        help: {
+                            close:		"",
+                            interact:	"Интерактивная подсказка"
+                        },
+                        about: {
+                            text: 	"",
+                            title:	"",
+                            link:	"/index.html"
+                        }
+                    }
+                });
+            });
+        }
+    </script>
     <div class="general-single-page-layout single-page-layout-one">
         <div class="breadcrumb-wrapper">
             <div class="breadcrumb" style="padding: 20px; margin-bottom: 0px; background:url({{asset('images')}}/banner/fon.jpg)">
                 <ul class="breadcrumb-listing">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">Post</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/articleCatalog">Каталог статей</a></li>
+                    <li><a>{{$articles->title}}</a></li>
                 </ul>
                 <div class="mask"></div>
             </div>
@@ -69,7 +116,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="post-the-content" style="word-wrap:break-word">
+                                        <div id="artText" class="post-the-content" style="word-wrap:break-word">
                                             <p>{!! $articles->text !!}</p>
                                         </div>
                                         <div class="post-share">
@@ -134,6 +181,8 @@
 
 @endsection
 @section('scripts')
-    <script type="text/javascript" src="{{asset('modules/comments/js')}}/comment-reply.js"></script>
-    <script type="text/javascript" src="{{asset('modules/comments/js')}}/comment-scripts.js"></script>
+
+
+            <script type="text/javascript" src="{{asset('modules/comments/js')}}/comment-reply.js"></script>
+            <script type="text/javascript" src="{{asset('modules/comments/js')}}/comment-scripts.js"></script>
 @endsection

@@ -35,7 +35,7 @@ jQuery(document).ready(function($) {
 
 
 
-$(document).ready(function() {
+jQuery(function($) {
 
     $(".fixed-nav").sticky({ topSpacing: 0 });
 
@@ -279,7 +279,7 @@ var swiper = new Swiper('.widget-rpag-gallery-container', {
 
 
 
-$(".share").jsSocials({
+jQuery(".share").jsSocials({
 
     shares: ["facebook", "twitter", "email", "pinterest", "pocket", "googleplus", "linkedin"],
 
@@ -301,7 +301,7 @@ $(".share").jsSocials({
 
 
 
-$('.masonry-grid').masonry({
+jQuery('.masonry-grid').masonry({
 
     itemSelector: '.grid-item',
 
@@ -309,7 +309,7 @@ $('.masonry-grid').masonry({
 
 setTimeout(function() {
 
-    $('.masonry-grid').masonry({
+    jQuery('.masonry-grid').masonry({
 
         itemSelector: '.grid-item',
 
@@ -325,7 +325,7 @@ setTimeout(function() {
 
 
 
-var owl2 = $('.banner-style-four-container');
+var owl2 = jQuery('.banner-style-four-container');
 
 owl2.owlCarousel({
 
@@ -395,7 +395,7 @@ owl2.owlCarousel({
 
 
 
-var owl3 = $('.related-post-carousel');
+var owl3 = jQuery('.related-post-carousel');
 
 owl3.owlCarousel({
 
@@ -453,7 +453,7 @@ owl3.owlCarousel({
 
 
 
-var owl4 = $('.related-post-carousel-three-cards');
+var owl4 = jQuery('.related-post-carousel-three-cards');
 
 owl4.owlCarousel({
 
@@ -513,7 +513,7 @@ owl4.owlCarousel({
 
 
 
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
     var feed = new Instafeed({
 
@@ -590,7 +590,7 @@ jQuery(document).ready(function($) {
 });
 
 
-    $('.covervid-video').coverVid(1920, 1080);
+    jQuery('.covervid-video').coverVid(1920, 1080);
 
 
 

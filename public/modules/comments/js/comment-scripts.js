@@ -1,4 +1,5 @@
-jQuery(document).ready(function($){     
+jQuery.noConflict();
+jQuery(function($){    
 	
 	//номерация комментариев
     $('.commentlist li').each(function(i){

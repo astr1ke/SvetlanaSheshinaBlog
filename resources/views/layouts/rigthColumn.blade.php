@@ -28,7 +28,7 @@
                                             <div class="mask"></div>
                                             <div class="slide-content">
                                                 <div class="post-title">
-                                                    <h5><a href="#">{{$articleRecent->title}}</a></h5>
+                                                    <h5><a href="/article/{{$articleRecent->id}}">{{$articleRecent->title}}</a></h5>
                                                 </div>
                                             </div>
                                         </div>

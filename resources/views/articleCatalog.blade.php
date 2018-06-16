@@ -25,9 +25,8 @@
         <div class="breadcrumb-wrapper">
             <div class="breadcrumb" style="padding: 20px; margin-bottom: 0px; background:url({{asset('images')}}/banner/fon.jpg)">
                 <ul class="breadcrumb-listing">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Lifestyle</a></li>
-                    <li><a href="#">Post</a></li>
+                    <li><a href="/">Главная</a></li>
+                    <li><a>{{$title}}</a></li>
                 </ul>
                 <div class="mask"></div>
             </div>
@@ -43,6 +42,9 @@
                                             <div class="post-title">
                                                 <h2> <h4 style="margin:50px ">{{$title}}</h4></h2>
                                             </div>
+                                            @if(count($articles)<1)
+                                                <h5>Ничего не найдено :(</h5>
+                                            @endif
                                             @foreach($articles as $article)
                                                 <div class="post-the-content articleCatalog" style="word-wrap:break-word">
                                                     <?php

@@ -4,9 +4,8 @@
     <div class="breadcrumb-wrapper">
         <div class="breadcrumb" style="padding: 20px; margin-bottom: 0px; background:url({{asset('images')}}/banner/fon.jpg)">
             <ul class="breadcrumb-listing">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Post</a></li>
+                <li><a href="/">Главная</a></li>
+                <li><a>Обратная связь</a></li>
             </ul>
             <div class="mask"></div>
         </div>

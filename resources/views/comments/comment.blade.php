@@ -4,7 +4,7 @@
 	<div id="comment-{{$item->id}}" class="comment-container">
 
 
-		<article class="review-box clearfix">
+		<article class="review-box clearfix" style="margin-bottom: 0px; min-height: 90px; padding-left: 90px">
 			<?php
 				$userCom = \App\User::find($item->user_id);
             if(isset($userCom)){
@@ -17,12 +17,12 @@
 			@if(isset($ava))
 				<figure class="rev-thumb"><img src="{{$ava}}" alt=""></figure>
 			@endif
-			<div class="rev-content">
-				<div class="rev-info"><strong>{{$item->user}} – {{ is_object($item->created_at) ? $item->created_at->format('d.m.Y в H:i') : ''}} </strong></div>
+			<div class="rev-content" style="padding: 10px">
+				<div class="rev-info" style="padding: 0px"><strong>{{$item->user}} – {{ is_object($item->created_at) ? $item->created_at->format('d.m.Y в H:i') : ''}} </strong></div>
 				<div class="rev-text">
 					<p>{{ $item->text }}</p>
 				</div>
-				<div class="rev-reply">
+				<div class="rev-reply" style="padding-top: 0px">
 					<a class="comment-reply-link" href="#respond" onclick="return addComment.moveForm(&quot;comment-{{$item->id}}&quot;,&quot;{{$item->id}}&quot;,&quot;respond&quot;,&quot;{{$item->article_id}}&quot;)">Ответить</a>
 					<?php
 						if(\Illuminate\Support\Facades\Auth::check()){
