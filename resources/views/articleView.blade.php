@@ -121,7 +121,7 @@
                                         <div id="artText" class="post-the-content" style="word-wrap:break-word">
                                             <p>{!! $articles->text !!}</p>
                                         </div>
-                                        <div class="post-share">
+                                        <div class="post-share" style="text-align: center">
                                             <div class="ya-share2" async="async" data-url="http://светланачечина.рус/article/{{$articles->id}}" data-title="{{$articles->title}}" data-description="{{$articles->text}}" data-image="{{$articles->image}}" data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
                                         </div>
                                         <div class="tags-meta-and-others clearfix">
