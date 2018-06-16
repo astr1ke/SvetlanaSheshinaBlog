@@ -54,7 +54,7 @@
                                                     if(isset($us)){
                                                         $user = $us -> name;
                                                         $ava =$us -> avatar;
-                                                        if (mb_substr($ava, 0,1) == 'a'){
+                                                        if (mb_substr($ava, 0,1) <> 'h'){
                                                             $ava = '/storage/'.$ava;
                                                         }
                                                     }

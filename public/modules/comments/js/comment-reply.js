@@ -3,7 +3,7 @@ delComment = {
             var data = d;
 
 
-            $.post('/commentDelete', {id: data, _method: 'delete', _token: $('meta[name="csrf-token"]').attr('content')});
+            jQuery.post('/commentDelete', {id: data, _method: 'delete', _token: jQuery('meta[name="csrf-token"]').attr('content')});
             location.reload();
         },
 

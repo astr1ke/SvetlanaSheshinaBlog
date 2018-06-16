@@ -96,7 +96,7 @@
                                                             if(isset($us)){
                                                             $user = $us -> name;
                                                             $ava =$us -> avatar;
-                                                            if (mb_substr($ava, 0,1) == 'a'){
+                                                            if (mb_substr($ava, 0,1) <> 'h'){
                                                                 $ava = '/storage/'.$ava;
                                                             }
                                                             }
@@ -156,6 +156,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                                 <div class="comment-area-wrapper">
                                     <div class="comment-area-inner">
                                         <div class="comments">
