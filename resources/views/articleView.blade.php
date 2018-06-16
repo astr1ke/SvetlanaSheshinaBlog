@@ -8,6 +8,8 @@
 @section('content')
     <script type="text/javascript" src="{{asset('modules/lightbox')}}/scripts/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="{{asset('modules/lightbox')}}/scripts/jquery.lightbox.js"></script>
+    <script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+    <script src="//yastatic.net/share2/share.js"></script>
 
 
 
@@ -120,7 +122,7 @@
                                             <p>{!! $articles->text !!}</p>
                                         </div>
                                         <div class="post-share">
-                                            <div class="share"></div>
+                                            <div class="ya-share2" async="async" data-url="http://светланачечина.рус/article/{{$articles->id}}" data-title="{{$articles->title}}" data-description="{{$articles->text}}" data-image="{{$articles->image}}" data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
                                         </div>
                                         <div class="tags-meta-and-others clearfix">
                                             <div class="post-tags">

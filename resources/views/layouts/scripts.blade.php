@@ -1,3 +1,7 @@
+
+<script src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+<script src="//yastatic.net/share2/share.js"></script>
+
 <script src="{{asset('js')}}/bundle.min.js"></script>
 <script src="{{asset('js')}}/scripts.js"></script>
 <script>

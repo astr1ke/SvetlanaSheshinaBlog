@@ -47,7 +47,7 @@
                                             <!-- // col 4 -->
                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                 <div class="post-share">
-                                                    <div class="share"></div>
+                                                    <div class="ya-share2" async="async" data-url="http://светланачечина.рус/article/{{$article->id}}" data-title="{{$article->title}}" data-description="{{$article->text}}" data-image="{{$article->image}}" data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
                                                 </div>
                                             </div>
                                             <!-- // col 4 -->
