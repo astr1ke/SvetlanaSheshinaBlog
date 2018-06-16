@@ -127,7 +127,7 @@
                                             <p>{!! $articles->text !!}</p>
                                         </div>
                                         <div class="post-share" style="text-align: center">
-                                            <div class="ya-share2" async="async" data-url="http://светланачечина.рус/article/{{$articles->id}}" data-title="{{$articles->title}}" data-description="{{$articles->text}}" data-image="http://светланачечина.рус/{{$articles->image}}" data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
+                                            <div class="ya-share2" async="async"  data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
                                         </div>
                                         <div class="tags-meta-and-others clearfix">
                                             <div class="post-tags">
