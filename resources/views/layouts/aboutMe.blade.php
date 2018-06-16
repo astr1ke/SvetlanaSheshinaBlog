@@ -4,6 +4,7 @@
         $aboutMe = \App\aboutMe::find(1);
         ?>
         <div class="widget-about-me-profile">
+            <img src="{{$articles->image}}" alt="..." style="display: none">
             <img src="{{asset('storage').'/'.$aboutMe->foto}}" alt="...">
         </div>
         <div class="widget-extra-info-holder">
