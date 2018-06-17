@@ -7,6 +7,7 @@ use App\categorie;
 use App\Comment;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class articleController extends Controller
 {
@@ -35,16 +36,18 @@ class articleController extends Controller
             'categorie_id' =>'required',
             'text' =>'required'
         ]);
-        $file = public_path().'\\uploads\\'.$_FILES['image']['name'];
-        $ff = '\\uploads\\'.$_FILES['image']['name'];
-        $tmp_name = $_FILES["image"]["tmp_name"];
-        move_uploaded_file($tmp_name, $file);
+        //$file = public_path().'\\uploads\\'.$_FILES['image']['name'];
+        //$ff = '\\uploads\\'.$_FILES['image']['name'];
+        //$tmp_name = $_FILES["image"]["tmp_name"];
+        //move_uploaded_file($tmp_name, $file);
+        $path = Storage::disk('public')->put('uploads',$request->image);
+        $path = 'storage/'.$path;
         article::create([
             'user_id' => $request->user_id,
             'title' => $request->title,
             'categorie_id' => $request->categorie_id,
             'text' => $request->text,
-            'image' => $ff,
+            'image' => $path,
         ]);
         return redirect('/');
     }
