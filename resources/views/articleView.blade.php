@@ -130,18 +130,12 @@
                                         <div id="artText" class="post-the-content" style="word-wrap:break-word">
                                             <p>{!! $articles->text !!}</p>
                                         </div>
-                                        <div class="post-share" style="text-align: center">
-                                            <script type="text/javascript">(function() {
-                                                    if (window.pluso)if (typeof window.pluso.start == "function") return;
-                                                    if (window.ifpluso==undefined) { window.ifpluso = 1;
-                                                        var d = document, s = d.createElement('script'), g = 'getElementsByTagName';
-                                                        s.type = 'text/javascript'; s.charset='UTF-8'; s.async = true;
-                                                        s.src = ('https:' == window.location.protocol ? 'https' : 'http')  + '://share.pluso.ru/pluso-like.js';
-                                                        var h=d[g]('body')[0];
-                                                        h.appendChild(s);
-                                                    }})();</script>
-                                            <div class="pluso" data-background="#ebebeb" data-options="medium,square,line,horizontal,counter,theme=04" data-services="vkontakte,odnoklassniki,google,twitter,facebook,moimir,print,email" data-image="{{$articles->image}}"></div>
-                                        </div>
+                                            <div class="post-share" style="text-align: center">
+                                                <?php
+                                                $textt =  strip_tags($articles->text);
+                                                ?>
+                                                <div class="ya-share2" data-url="http://светланачечина.рус/article/{{$articles->id}}" data-title="{{$articles->title}}" data-description="{{$textt}}" data-image="{{$articles->image}}" data-services="vkontakte,odnoklassniki,gplus,whatsapp,telegram"></div>
+                                            </div>
                                         <div class="tags-meta-and-others clearfix">
                                             <div class="post-tags">
                                                 <span><a href="#">{{$categorie}}</a></span>

@@ -8,7 +8,7 @@
             background: whitesmoke;
             border-radius: 3px;
             padding: 10px;
-            width: max-content;
+            max-width: max-content;
 
         }
 
@@ -16,7 +16,7 @@
             background: whitesmoke;
             border-radius: 3px;
             padding: 15px;
-            width: max-content;
+            max-width: max-content;
             height: 82px;
             margin-bottom: 15px;
             margin-top: 15px;

@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 footer-block">
-                    <div class="">
+                    <div class="footArt">
                         <div class="footer-widget-content">
                             <div class="widget-title">
                                 <h2>Популярные посты</h2>
