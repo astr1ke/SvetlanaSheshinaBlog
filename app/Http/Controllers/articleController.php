@@ -36,10 +36,6 @@ class articleController extends Controller
             'categorie_id' =>'required',
             'text' =>'required'
         ]);
-        //$file = public_path().'\\uploads\\'.$_FILES['image']['name'];
-        //$ff = '\\uploads\\'.$_FILES['image']['name'];
-        //$tmp_name = $_FILES["image"]["tmp_name"];
-        //move_uploaded_file($tmp_name, $file);
         $path = Storage::disk('public')->put('uploads',$request->image);
         $path = 'storage/'.$path;
         article::create([
@@ -86,16 +82,14 @@ class articleController extends Controller
         ]);
         $article = article::find($request->article_id);
         if (isset($request->image)){
-            $file = public_path().'\\uploads\\'.$_FILES['image']['name'];
-            $ff = '\\uploads\\'.$_FILES['image']['name'];
-            $tmp_name = $_FILES["image"]["tmp_name"];
-            move_uploaded_file($tmp_name, $file);
+            $path = Storage::disk('public')->put('uploads',$request->image);
+            $path = 'storage/'.$path;
             $article->update([
                 'user_id' => $request->user_id,
                 'title' => $request->title,
                 'categorie_id' => $request->categorie_id,
                 'text' => $request->text,
-                'image' => $ff,
+                'image' => $path,
             ]);
         }else{
             $article->update([
