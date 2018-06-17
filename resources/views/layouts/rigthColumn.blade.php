@@ -24,7 +24,11 @@
                                         @if($i<=5)
                                         <?php $i++?>
                                         <div class="swiper-slide">
-                                            <img src="{{$articleRecent->image}}" alt="..." style="height: 200px">
+                                            @if(stristr($articleRecent->image,'http')==TRUE)
+                                                <iframe max-width="800" width="100%" height="200" src="{{$articleRecent->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                            @else
+                                                <img src="{{$articleRecent->image}}" alt="..." style="height: 200px">
+                                            @endif
                                             <div class="mask"></div>
                                             <div class="slide-content">
                                                 <div class="post-title">

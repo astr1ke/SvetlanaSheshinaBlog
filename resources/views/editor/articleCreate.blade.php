@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('styles')
+    <link href="{{asset('modules/toggle/css')}}/style.css" rel="stylesheet">
 
     <script src="/modules/ckeditor/ckeditor.js"></script>
     <style type="text/css">
@@ -72,15 +73,35 @@
                                 <p class="area">
                                     <textarea class="text" name="text" id="text" rows="10" cols="80"></textarea>
                                 </p>
-                                <div class="fld2">
+                                <script>
+                                    CKEDITOR.replace('text')
+                                </script>
+
+                                <p>
+                                    Тип заголовка(фото/видео)
+                                </p>
+                                <p style="margin-top: 10px">
+                                    <label class="switch switch_type1" role="switch" >
+                                    <input type="checkbox" class="switch__toggle" name="checkType" id="checkType">
+                                    <span class="switch__label"></span>
+                                    </label>
+                                </p>
+                                <div class="fld2" id="fld1" >
                                     <p>
-                                        <label id="lp">Фото для заголовка:</label>
-                                        <input id="img" type="file"  name="image">
+                                    <label id="lp">Фото для заголовка:</label>
+                                    <input id="img" type="file"  name="image">
                                     </p>
-                                    <script>
-                                        CKEDITOR.replace('text')
-                                    </script>
                                 </div>
+                                <div class="fld2" id="fld2" style="display: none">
+                                    <p>
+                                    <label id="lp">Видео для заголовка:</label>
+                                    <p>
+                                    <input id="img2" type="text"  name="video">
+                                    </p>
+                                    </p>
+                                </div>
+
+
                                 <input type="hidden" name = "user_id" value="{{\Illuminate\Support\Facades\Auth::user()->id}}" />
                                 <p>
                                     <label>&nbsp;</label>
@@ -97,4 +118,22 @@
 
 @section('scripts')
     <script src="/modules/ckeditor/ckeditor.js"></script>
+
+    <script>
+
+        jQuery(function($){
+
+
+            $("#checkType").click(function () {
+                if (document.getElementById('checkType').checked) {
+                    document.getElementById('fld2').style.display = 'block';
+                    document.getElementById('fld1').style.display = 'none';
+                }
+                else {document.getElementById('fld1').style.display = 'block';
+                    document.getElementById('fld2').style.display = 'none';
+                }
+            })
+
+        });
+    </script>
 @endsection

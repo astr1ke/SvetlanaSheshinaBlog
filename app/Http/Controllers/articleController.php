@@ -11,6 +11,19 @@ use Illuminate\Support\Facades\Storage;
 
 class articleController extends Controller
 {
+    private function makeUrlVideo($str){
+       //<iframe width="854" height="480" src="https://www.youtube.com/embed/LYg26_LBlZ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        $mass = explode(" ", $str);
+        foreach ($mass as $m){
+            if(stristr($m, 'src="') == TRUE) {
+               $str = stristr($m,"\"");
+               $str = substr($str,1);
+               $str = stristr($str,"\"",true);
+               return $str;
+            }
+        }
+    }
+
     public function view($id){
         $articleV = article::find($id);
         $articleViews = $articleV->views;
@@ -36,15 +49,33 @@ class articleController extends Controller
             'categorie_id' =>'required',
             'text' =>'required'
         ]);
-        $path = Storage::disk('public')->put('uploads',$request->image);
-        $path = '/storage/'.$path;
-        article::create([
-            'user_id' => $request->user_id,
-            'title' => $request->title,
-            'categorie_id' => $request->categorie_id,
-            'text' => $request->text,
-            'image' => $path,
-        ]);
+        if (isset($request->checkType)){
+            if ($request->video != '') {
+                $path = $this->makeUrlVideo($request->video);
+                $path = $path . '?rel=0&amp;showinfo=0';
+
+            }else{
+                $path = '';
+            }
+                article::create([
+                    'user_id' => $request->user_id,
+                    'title' => $request->title,
+                    'categorie_id' => $request->categorie_id,
+                    'text' => $request->text,
+                    'image' => $path,
+                ]);
+
+        }else {
+            $path = Storage::disk('public')->put('uploads', $request->image);
+            $path = '/storage/' . $path;
+            article::create([
+                'user_id' => $request->user_id,
+                'title' => $request->title,
+                'categorie_id' => $request->categorie_id,
+                'text' => $request->text,
+                'image' => $path,
+            ]);
+        }
         return redirect('/');
     }
 
@@ -74,16 +105,23 @@ class articleController extends Controller
         return view('editor.articleEdit',['article'=>$article,'categories'=>$categories]);
     }
 
-    public function editPost(Request $request){
+    public function editPost(Request $request)
+    {
         $this->validate($request, [
-            'title' =>'required|max:50',
-            'categorie_id' =>'required',
-            'text' =>'required'
+            'title' => 'required|max:50',
+            'categorie_id' => 'required',
+            'text' => 'required'
         ]);
         $article = article::find($request->article_id);
-        if (isset($request->image)){
-            $path = Storage::disk('public')->put('uploads',$request->image);
-            $path = '/storage/'.$path;
+        if (isset($request->checkType)) {
+
+            if ($request->video != '') {
+                $path = $this->makeUrlVideo($request->video);
+                $path = $path . '?rel=0&amp;showinfo=0';
+
+            } else {
+                $path = '';
+            }
             $article->update([
                 'user_id' => $request->user_id,
                 'title' => $request->title,
@@ -91,13 +129,31 @@ class articleController extends Controller
                 'text' => $request->text,
                 'image' => $path,
             ]);
-        }else{
-            $article->update([
-                'user_id' => $request->user_id,
-                'title' => $request->title,
-                'categorie_id' => $request->categorie_id,
-                'text' => $request->text,
-            ]);
+
+
+        } else {
+
+            if (isset($request->image)) {
+
+                $path = Storage::disk('public')->put('uploads', $request->image);
+                $path = '/storage/' . $path;
+                $article->update([
+                    'user_id' => $request->user_id,
+                    'title' => $request->title,
+                    'categorie_id' => $request->categorie_id,
+                    'text' => $request->text,
+                    'image' => $path,
+                ]);
+
+            } else {
+
+                $article->update([
+                    'user_id' => $request->user_id,
+                    'title' => $request->title,
+                    'categorie_id' => $request->categorie_id,
+                    'text' => $request->text,
+                ]);
+            }
         }
         return redirect('/admin/articles');
     }

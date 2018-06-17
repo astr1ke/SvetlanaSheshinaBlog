@@ -10,7 +10,11 @@
                             @foreach($articles as $article)
                                 <article class="post-details-holder wow  fadeInUp">
                                     <div class="post-image">
-                                        <img src="{{$article->image}}" alt="....">
+                                        @if(stristr($article->image,'http')==TRUE)
+                                            <iframe width="560" height="315" src="{{$article->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                        @else
+                                            <img src="{{$article->image}}" alt="....">
+                                        @endif
                                     </div>
                                     <!-- // post image -->
                                     <div class="post-title">

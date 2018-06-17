@@ -83,7 +83,11 @@
 
                                 <article class="single-page-details-holder wow fadeInUp">
                                     <div class="post-image">
-                                        <img src="{{$articles->image}}" alt="....">
+                                        @if(stristr($articles->image,'http')==TRUE)
+                                                <iframe max-width="800" width="100%" height="420" src="{{$articles->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                            @else
+                                                <img src="{{$articles->image}}" alt="....">
+                                            @endif
                                     </div>
                                     <div class="single-page-other-information-holder">
                                         <div class="posted-category">
@@ -147,7 +151,7 @@
                                     </div>
                                 </article>
 
-                                <div class="related-posts-wrapper">
+                             <!--   <div class="related-posts-wrapper">
                                     <div class="related-posts-inner">
                                         <div class="related-post-carousel owl-carousel">
 
@@ -169,7 +173,7 @@
 
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
 
 
                                 <div class="comment-area-wrapper">
