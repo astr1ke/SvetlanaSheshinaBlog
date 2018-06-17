@@ -63,7 +63,11 @@
                             <?php $i++?>
                             <div class="widget-posts">
                                 <div class="post-thumb">
-                                    <img src="{{$popArticle->image}}" alt=".....">
+                                    @if(stristr($popArticle->image,'http')==TRUE)
+                                        <iframe max-width="800" width="100%" height="85" src="{{$popArticle->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                    @else
+                                        <img src="{{$popArticle->image}}" alt=".....">
+                                    @endif
                                 </div>
                                 <div class="post-title">
                                     <h5><a href="/article/{{$popArticle->id}}">{{$popArticle->title}}</a></h5>

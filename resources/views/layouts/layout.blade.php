@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="/images/logoMain.png" type="image/x-icon">
     <title>Блог Светланы Чечиной</title>
 
     @include('layouts.styles')

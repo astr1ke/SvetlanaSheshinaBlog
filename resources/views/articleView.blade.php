@@ -84,7 +84,7 @@
                                 <article class="single-page-details-holder wow fadeInUp">
                                     <div class="post-image">
                                         @if(stristr($articles->image,'http')==TRUE)
-                                                <iframe max-width="800" width="100%" height="420" src="{{$articles->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+                                                <iframe max-width="800" width="100%" height="430" src="{{$articles->image}}" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
                                             @else
                                                 <img src="{{$articles->image}}" alt="....">
                                             @endif

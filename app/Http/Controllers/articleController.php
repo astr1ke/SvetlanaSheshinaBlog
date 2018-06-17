@@ -94,6 +94,8 @@ class articleController extends Controller
     }
 
     public function delete($id){
+
+        Comment::where('article_id',$id)->delete();
         article::destroy($id);
         $articles = article::orderBy('created_at','DESC')->paginate(30);
         return view('admin.articleCatalogAdmin', ['articles'=>$articles]);
