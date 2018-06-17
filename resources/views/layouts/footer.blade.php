@@ -1,4 +1,4 @@
-<footer class="general-footer" style="background-image:url({{asset('images')}}/footer-bg7.jpeg); margin-top: 50px" >
+<footer class="general-footer" style="background-image:url({{asset('images')}}/footerLogo.jpg); margin-top: 50px" >
 <div class="footer-mask"></div>
     <div class="footer-inner">
         <div class="container">
