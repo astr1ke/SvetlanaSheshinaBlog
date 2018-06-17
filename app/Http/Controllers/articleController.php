@@ -37,7 +37,7 @@ class articleController extends Controller
             'text' =>'required'
         ]);
         $path = Storage::disk('public')->put('uploads',$request->image);
-        $path = 'storage/'.$path;
+        $path = '/storage/'.$path;
         article::create([
             'user_id' => $request->user_id,
             'title' => $request->title,
@@ -83,7 +83,7 @@ class articleController extends Controller
         $article = article::find($request->article_id);
         if (isset($request->image)){
             $path = Storage::disk('public')->put('uploads',$request->image);
-            $path = 'storage/'.$path;
+            $path = '/storage/'.$path;
             $article->update([
                 'user_id' => $request->user_id,
                 'title' => $request->title,
