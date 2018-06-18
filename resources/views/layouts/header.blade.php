@@ -8,7 +8,7 @@
                             <div class="search">
                                 <form action="/search" method="post">
                                     <i class="fa fa-search" aria-hidden="true"></i>
-                                    <input id="search" type="search" name="srch" placeholder="Search ..........">
+                                    <input id="search" type="search" name="srch" placeholder="Поиск ..........">
                                     <input type="submit" id="submit" style="display: none">
                                 </form>
 
