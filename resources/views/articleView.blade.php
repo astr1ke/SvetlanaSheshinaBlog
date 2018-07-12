@@ -118,7 +118,11 @@
                                                         ?>
 
                                                         @if(isset($ava))
-                                                            <img src="{{$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                            @if(strpos($ava,'users'))
+                                                                    <img src="/storage/{{$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                            @else
+                                                                <img src="{{$ava}}" alt="...." style="max-height: 50px; max-width: 50px">
+                                                            @endif
                                                             <span><a href="#">{{$user}}</a></span>
                                                         @endif
                                                     </div>
